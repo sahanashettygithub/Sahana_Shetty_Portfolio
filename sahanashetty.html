@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sahana Shetty | AI Engineer</title>
+  <meta name="description" content="Sahana Shetty builds LLM agents, RAG apps and deep learning projects, and ships them for real.">
+  <meta name="theme-color" content="#0a1024">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#0a1024; --bg2:#121a3a; --bg3:#17224a;
+  --ink:#e8ecfb; --mute:#9aa4c7; --lime:#c6f432;
+  --line:rgba(255,255,255,.13);
+  --paper:#f2f4fb; --paper-ink:#0a1024; --paper-mute:#4a5478;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.lime{color:var(--lime)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:.9rem clamp(1.25rem,4vw,3rem);background:rgba(10,16,36,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font:700 1.4rem "Space Grotesk",sans-serif}
+.logo span{color:var(--lime)}
+.nav nav{display:flex;align-items:center;gap:1.6rem}
+.nav nav a{color:var(--mute);font-size:.95rem;transition:color .2s}
+.nav nav a:hover{color:var(--ink)}
+.nav-cta{background:var(--lime);color:var(--bg)!important;padding:.45rem 1.1rem;border-radius:999px;font-weight:600}
+@media(max-width:620px){.nav nav a:not(.nav-cta){display:none}}
+
+/* hero */
+.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(3rem,7vw,5rem)}
+.eyebrow{display:flex;align-items:center;gap:.6rem;color:var(--mute);font-size:.95rem;margin-bottom:1.6rem}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(198,244,50,.2)}
+.name{font-size:clamp(3.6rem,15vw,12rem);font-weight:700;letter-spacing:-.045em;line-height:.88}
+.name span{display:block}
+@media(min-width:900px){.name span{display:inline}}
+.outline{color:transparent;-webkit-text-stroke:2px var(--lime)}
+.role{font:500 clamp(1.3rem,3vw,2rem) "Space Grotesk",sans-serif;margin-top:1.6rem;color:var(--ink)}
+.lead{max-width:60ch;margin-top:1.2rem;color:var(--mute);font-size:1.1rem}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.btn{display:inline-flex;gap:.5rem;padding:.9rem 1.5rem;border-radius:999px;font-weight:600;border:1px solid var(--line);transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--lime);color:var(--bg);border-color:var(--lime)}
+.btn.ghost:hover{background:var(--bg2)}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:1rem 0}
+.track{display:flex;gap:3rem;width:max-content;animation:scroll 32s linear infinite}
+.track span{font:500 1.25rem "Space Grotesk",sans-serif;color:var(--mute);white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+.section{padding:clamp(4rem,9vw,6.5rem) 0}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.5rem}
+.num{font:600 1rem "Space Grotesk",sans-serif;color:var(--lime)}
+.sec-head h2{font-size:clamp(1.9rem,4.5vw,3rem);letter-spacing:-.02em}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem;color:var(--mute);font-size:1.1rem}
+.about>p{color:var(--ink);font-size:1.4rem;line-height:1.5}
+.about div p+p{margin-top:1rem}
+@media(max-width:760px){.about{grid-template-columns:1fr;gap:1.5rem}}
+
+.toolbox .row{display:grid;grid-template-columns:240px 1fr;gap:1.5rem;padding:1.4rem 0;border-top:1px solid var(--line)}
+.toolbox h3{font-size:1.2rem}
+.toolbox p{color:var(--mute)}
+@media(max-width:760px){.toolbox .row{grid-template-columns:1fr;gap:.4rem}}
+
+.step{display:grid;grid-template-columns:100px 1fr;gap:1.5rem;padding:1.7rem 0;border-top:1px solid var(--line)}
+.yr{font:700 1.7rem "Space Grotesk",sans-serif;color:var(--lime)}
+.step h3{font-size:1.3rem;margin-bottom:.4rem}
+.step h3 em{font-style:normal;font-weight:400;color:var(--mute)}
+.step p{color:var(--mute);max-width:65ch}
+@media(max-width:600px){.step{grid-template-columns:1fr;gap:.3rem}}
+
+.awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.award{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:1.5rem}
+.tag{display:inline-block;font-size:.8rem;color:var(--lime);margin-bottom:.8rem}
+.award h3{font-size:1.2rem;margin-bottom:.3rem}
+.award p{color:var(--mute);font-size:.95rem}
+
+.contact h2{font-size:clamp(2.2rem,6vw,4.4rem);letter-spacing:-.03em;margin:1rem 0 2.2rem}
+.contact-links{display:flex;flex-wrap:wrap;gap:1rem}
+.big{display:block;padding:1.2rem 1.6rem;border:1px solid var(--line);border-radius:16px;background:var(--bg2);transition:border-color .2s}
+.big:hover{border-color:var(--lime)}
+.big small{display:block;color:var(--mute)}
+.big span{font:500 clamp(1.1rem,2.5vw,1.5rem) "Space Grotesk",sans-serif;overflow-wrap:anywhere}
+.socials{display:flex;gap:1.4rem;margin-top:1.8rem}
+.socials a{color:var(--mute)}
+.socials a:hover{color:var(--lime)}
+.footer{display:flex;justify-content:space-between;padding:2rem 0;border-top:1px solid var(--line);color:var(--mute);font-size:.9rem}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+/* ================= PAGE-FLIP BOOK ================= */
+.book-wrap{perspective:2400px;overflow:hidden;padding:2rem 0 2.5rem}
+.book{position:relative;width:min(1040px,100%);height:clamp(560px,76vh,640px);margin:0 auto;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.6,.05,.2,1);outline-offset:8px}
+.book.at-start{transform:translateX(-25%)}
+.book.at-end{transform:translateX(25%)}
+.leaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.6,.05,.2,1)}
+.leaf.flipped{transform:rotateY(-180deg)}
+.face{position:absolute;inset:0;background:var(--paper);color:var(--paper-ink);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.front{border-radius:4px 18px 18px 4px;box-shadow:inset 16px 0 20px -16px rgba(10,16,36,.4),0 24px 50px rgba(0,0,0,.35)}
+.back{transform:rotateY(180deg);border-radius:18px 4px 4px 18px;background:var(--bg3);color:var(--ink);box-shadow:inset -16px 0 20px -16px rgba(0,0,0,.6),0 24px 50px rgba(0,0,0,.35)}
+.cover-face{background:var(--lime);color:var(--bg)}
+
+.pg-in{height:100%;padding:2.4rem 2.3rem 3rem;overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
+.pg-in h3{font-size:clamp(1.6rem,2.6vw,2.1rem);letter-spacing:-.02em}
+.pnum{font-size:.85rem;color:var(--paper-mute)}
+.desc{color:var(--paper-mute)}
+.back .desc{color:var(--mute)}
+.pg-in ul{list-style:none;display:grid;gap:.8rem;margin-top:.3rem}
+.pg-in li{padding-left:1rem;border-left:3px solid var(--lime);font-size:.96rem}
+.bignum{font:700 clamp(5rem,10vw,8rem) "Space Grotesk",sans-serif;line-height:1;color:var(--lime);margin-bottom:auto;letter-spacing:-.05em}
+.vis{justify-content:flex-end}
+.badge{align-self:flex-start;font-size:.8rem;padding:.2rem .7rem;border-radius:999px;background:rgba(198,244,50,.16);color:var(--lime)}
+.mobile-meta .badge{background:var(--bg);color:var(--lime)}
+.cover{justify-content:flex-end}
+.cover h3{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1}
+.hint{font-size:.85rem;opacity:.75}
+
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-size:.8rem;padding:.2rem .65rem;border-radius:999px;border:1px solid rgba(10,16,36,.22)}
+.back .tags span{border-color:var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
+.links a{font-size:.9rem;font-weight:600;padding:.5rem 1rem;border-radius:999px;border:1px solid currentColor;transition:transform .2s}
+.links a:hover{transform:translateY(-2px)}
+.links a.live{background:var(--lime);color:var(--bg);border-color:var(--lime)}
+.mobile-meta{display:none}
+
+.flip-ctrl{display:flex;justify-content:center;align-items:center;gap:1.4rem;color:var(--mute)}
+.flip-btn{width:3rem;height:3rem;border-radius:50%;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font-size:1.2rem;cursor:pointer;transition:background .2s,color .2s}
+.flip-btn:hover:not(:disabled){background:var(--lime);color:var(--bg)}
+.flip-btn:disabled{opacity:.3;cursor:default}
+#status{min-width:8.5rem;text-align:center}
+
+@media(max-width:760px){
+  .book{width:min(440px,100%);height:620px}
+  .book.at-start,.book.at-end{transform:none}
+  .leaf{left:0;width:100%}
+  .front{border-radius:18px}
+  .back{display:none}
+  .mobile-meta{display:flex;flex-direction:column;gap:.8rem;margin-top:auto}
+  .tags span{border-color:rgba(10,16,36,.22)}
+  .links a.live{background:var(--bg);color:var(--lime);border-color:var(--bg)}
+  .links a{color:var(--paper-ink)}
+  .cover-face .links a{color:var(--bg)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .track{animation:none}
+  .leaf,.book,.reveal{transition-duration:.01s}
+  html{scroll-behavior:auto}
+}
+
+/* ================= 3D SKILLS CAROUSEL ================= */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skills{position:relative;overflow:hidden;padding-top:.5rem;outline-offset:6px}
+.skills-stage{position:relative;height:460px;perspective:1500px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.skills-stage:active{cursor:grabbing}
+.skill-card{position:absolute;left:50%;top:50%;width:var(--cw,400px);height:350px;padding:1.9rem 1.8rem;border-radius:22px;overflow:hidden;
+  background:linear-gradient(150deg,#1e2c63 0%,#101839 72%);border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 34px 60px -24px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.16);
+  transform:translate(-50%,-50%);will-change:transform;
+  transition:transform .85s cubic-bezier(.22,.8,.2,1),opacity .6s,filter .6s,box-shadow .6s,border-color .6s}
+.skills:not(.ready) .skill-card{transition:none}
+.skill-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--c)}
+.skill-card::after{content:"";position:absolute;width:280px;height:280px;right:-100px;top:-120px;border-radius:50%;background:radial-gradient(var(--c),transparent 68%);opacity:.2;pointer-events:none}
+.skill-card.active{border-color:var(--c);box-shadow:0 40px 70px -26px rgba(0,0,0,.85),0 0 46px -12px var(--c),inset 0 1px 0 rgba(255,255,255,.2)}
+.skill-card:not(.active){cursor:pointer}
+.skill-card h3{font-size:clamp(1.5rem,3vw,1.9rem);letter-spacing:-.02em;position:relative}
+.sk-count{color:var(--mute);font-size:.9rem;margin-top:.3rem;position:relative}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.2rem;position:relative}
+.chips li{font-size:.82rem;padding:.28rem .75rem;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+.skill-card.active .chips li{border-color:color-mix(in srgb,var(--c) 45%,transparent)}
+.skills-ctrl{display:flex;justify-content:center;align-items:center;gap:1.4rem;margin-top:.6rem}
+.skills-dots{display:flex;gap:.55rem;align-items:center}
+.dot-btn{width:.6rem;height:.6rem;padding:0;border:0;border-radius:999px;background:var(--line);cursor:pointer;transition:width .35s,background .35s}
+.dot-btn.on{width:1.8rem;background:var(--lime)}
+@media(max-width:640px){
+  .skills-stage{height:500px}
+  .skill-card{height:400px;padding:1.6rem 1.3rem}
+}
+@media(prefers-reduced-motion:reduce){.skill-card{transition-duration:.01s}}
+
+</style>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="logo" href="#top">SS<span>.</span></a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#toolbox">Skills</a>
+    <a href="#journey">Journey</a>
+    <a href="#awards">Awards</a>
+    <a href="#contact" class="nav-cta">Say hi</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <p class="eyebrow reveal"><span class="dot"></span> Bengaluru · Open to work</p>
+    <h1 class="name reveal"><span>Sahana</span> <span class="outline">Shetty</span></h1>
+    <p class="role reveal">AI engineer. I build AI projects and put them online.</p>
+    <p class="lead reveal">Fresh out of CMR University and happiest when an idea goes from "wouldn't it be cool if…" to a live link someone can actually click. Lately that means AI agents, chatbots that stay on topic, and a voice bot that talks back.</p>
+    <div class="cta reveal">
+      <a class="btn primary" href="#work">See what I've built <span>→</span></a>
+      <a class="btn ghost" href="#contact">Say hi</a>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>LangGraph</span><span>RAG</span><span>Python</span><span>PyTorch</span><span>Docker</span><span>Gemini</span><span>React</span><span>OpenCV</span><span>Grafana</span><span>Groq</span><span>Azure</span><span>Jenkins</span>
+      <span>LangGraph</span><span>RAG</span><span>Python</span><span>PyTorch</span><span>Docker</span><span>Gemini</span><span>React</span><span>OpenCV</span><span>Grafana</span><span>Groq</span><span>Azure</span><span>Jenkins</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="wrap section" id="about">
+    <div class="sec-head reveal"><span class="num">01</span><h2>A little about me</h2></div>
+    <div class="about reveal">
+      <p>I'm an IT grad who's really into AI, new tech and building software. I love playing with fresh ideas, fixing everyday problems and turning them into apps that actually help people.</p>
+      <div>
+        <p>I'm big on teamwork, I own my work, and I learn a lot from the people around me.</p>
+        <p>Now I'm looking for a team where I can bring fresh ideas, ship real stuff and keep growing through the tough, interesting problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="wrap section" id="work">
+    <div class="sec-head reveal"><span class="num">02</span><h2>Selected work</h2></div>
+    <div class="projects" id="project-grid"></div>
+  </section>
+
+  <!-- TOOLBOX -->
+  <section class="wrap section" id="toolbox">
+    <div class="sec-head reveal"><span class="num">03</span><h2>Technical skills</h2></div>
+    <div class="skills reveal" id="skills" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Technical skills. Use left and right arrow keys, scroll or swipe sideways.">
+    <div class="skills-stage">
+      <article class="skill-card" style="--c:#c6f432"><h3>Making LLMs useful</h3><p class="sk-count">14 skills</p><ul class="chips"><li>AI agents</li><li>LangGraph</li><li>LangChain</li><li>RAG</li><li>embeddings</li><li>ChromaDB</li><li>tool calling</li><li>prompt engineering</li><li>structured JSON</li><li>LLM evaluation</li><li>OpenAI</li><li>Gemini</li><li>Groq</li><li>Hugging Face</li></ul></article>
+      <article class="skill-card" style="--c:#5ee6ff"><h3>Teaching models</h3><p class="sk-count">8 skills</p><ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>scikit-learn</li><li>DeepLabV3+</li><li>ResNet-50</li><li>OpenCV</li><li>Pandas</li><li>NumPy</li></ul></article>
+      <article class="skill-card" style="--c:#a78bfa"><h3>Keeping it running</h3><p class="sk-count">7 skills</p><ul class="chips"><li>Docker</li><li>Jenkins CI/CD</li><li>Linux</li><li>unit testing</li><li>Prometheus</li><li>Grafana</li><li>log troubleshooting</li></ul></article>
+      <article class="skill-card" style="--c:#ffb454"><h3>Building the app</h3><p class="sk-count">13 skills</p><ul class="chips"><li>Python</li><li>SQL</li><li>Flask</li><li>REST APIs</li><li>Streamlit</li><li>Gradio</li><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>JavaScript</li><li>React</li><li>PHP</li><li>DBMS</li></ul></article>
+      <article class="skill-card" style="--c:#ff7ab8"><h3>Cloud</h3><p class="sk-count">1 skill</p><ul class="chips"><li>Azure AI Services</li></ul></article>
+    </div>
+    <div class="skills-ctrl">
+      <button class="flip-btn sk-prev" aria-label="Previous skill group">←</button>
+      <div class="skills-dots"></div>
+      <button class="flip-btn sk-next" aria-label="Next skill group">→</button>
+    </div>
+    <p class="sr-only sk-status" aria-live="polite"></p>
+  </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="wrap section" id="journey">
+    <div class="sec-head reveal"><span class="num">04</span><h2>Journey so far</h2></div>
+    <div class="journey">
+      <article class="step reveal">
+        <span class="yr">2024</span>
+        <div>
+          <h3>Web Development training <em>· Internshala</em></h3>
+          <p>A three-month deep dive into front end and back end: HTML, CSS, Bootstrap, JavaScript, React and PHP, plus databases and an AI-in-web-development module. Wrapped up by building and presenting a full-stack final project.</p>
+        </div>
+      </article>
+      <article class="step reveal">
+        <span class="yr">2025</span>
+        <div>
+          <h3>AI &amp; Azure Intern <em>· Microsoft × Edunet Foundation</em></h3>
+          <p>Built and tested an AI/ML solution on Azure AI Services in weekly design, test and debug cycles, writing up what changed and what happened after each round.</p>
+        </div>
+      </article>
+      <article class="step reveal">
+        <span class="yr">2026</span>
+        <div>
+          <h3>B.Tech in IT <em>· CMR University</em></h3>
+          <p>Graduated with a 9.16 CGPA and a place on the Chancellor's List. Also co-authored a research paper (ICSIAIML 2026) on deep-learning landcover segmentation from aerial imagery.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section class="wrap section" id="awards">
+    <div class="sec-head reveal"><span class="num">05</span><h2>Awards &amp; hackathons</h2></div>
+    <div class="awards">
+      <article class="award reveal">
+        <span class="tag">Award</span>
+        <h3>Chancellor's List</h3>
+        <p>CMR University</p>
+      </article>
+      <article class="award reveal">
+        <span class="tag">Award · 2023</span>
+        <h3>Award of Innovation</h3>
+        <p>Recognised for innovation</p>
+      </article>
+      <article class="award reveal">
+        <span class="tag">Hackathon</span>
+        <h3>Google Girl Hackathon</h3>
+        <p>Participant</p>
+      </article>
+      <article class="award reveal">
+        <span class="tag">Hackathon</span>
+        <h3>Road Safety Hackathon</h3>
+        <p>Participant · NHAI &amp; HOAI</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="wrap section" id="contact">
+    <div class="contact reveal">
+      <p class="eyebrow"><span class="dot"></span> Let's talk</p>
+      <h2>Got a role, a project<br>or just a good idea?<br><span class="lime">Let's build it.</span></h2>
+      <div class="contact-links">
+        <a class="big" href="mailto:sahanashetty791@gmail.com">
+          <small>Email</small><span>sahanashetty791@gmail.com</span>
+        </a>
+        <a class="big" href="tel:+918618800875">
+          <small>Phone</small><span>+91 86188 00875</span>
+        </a>
+      </div>
+      <div class="socials" id="socials"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer wrap">
+  <span>© <span id="year"></span> Sahana Shetty</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<script>
+/* ==========================================================
+   EDIT YOUR LINKS HERE
+   A button only appears when its link is filled in.
+   ========================================================== */
+const SOCIALS = {
+  github:   "https://github.com/sahanashettygithub",
+  linkedin: ""    // e.g. "https://www.linkedin.com/in/your-profile"
+};
+
+const PROJECTS = [
+  {
+    title: "ReAct Search Agent",
+    desc: "A tool-calling agent that decides when to search the web, reads the results and iterates until it can answer.",
+    points: [
+      "ReAct agent built in LangGraph that decides when to call a search tool, observes results and loops.",
+      "Serper (Google Search) as the tool, with a Groq-hosted LLM reasoning over intent and tool output at each step."
+    ],
+    tags: ["Python", "LangGraph", "Groq API", "Serper"],
+    github: "https://github.com/sahanashettygithub/ReAct_Search_Agent",
+    demo: ""
+  },
+  {
+    title: "AI Resume & JD Analyzer",
+    badge: "DevOps + Monitoring",
+    desc: "Compares a resume against a job description and returns a match score, skill gaps, missing keywords and suggestions as structured JSON.",
+    points: [
+      "Gemini API output as structured JSON; report in about 30 seconds.",
+      "Docker + Jenkins CI/CD pipeline for automated checks and image builds.",
+      "Prometheus and Grafana for health and performance monitoring."
+    ],
+    tags: ["Python", "Streamlit", "Gemini API", "Docker", "Jenkins", "Prometheus", "Grafana", "Linux"],
+    github: "https://github.com/sahanashettygithub/AI-Resume-Job-Description-Analyzer",
+    demo: "https://ai-resume-job-description-analyzer-tc46c6qf4vgowvkrrqbrok.streamlit.app/"
+  },
+  {
+    title: "RAG Chatbot",
+    desc: "A Q&A chatbot that answers only from the document a user uploads, keeping responses grounded.",
+    points: [
+      "Ingestion and retrieval pipeline: document loading, chunking, embeddings and vector retrieval via ChromaDB.",
+      "Streamlit interface, live on Streamlit Community Cloud."
+    ],
+    tags: ["Python", "Streamlit", "RAG", "Embeddings", "ChromaDB", "LLM"],
+    github: "https://github.com/sahanashettygithub/RAG_ChatBot/tree/main",
+    demo: "https://ragchatbot-6thkh8qyv6fhej3vwzrfwm.streamlit.app/"
+  },
+  {
+    title: "Medi-AI: Multimodal Voice Doctor Bot",
+    desc: "Turns a spoken question and a medical image into a spoken answer, for an interface that feels like real-time conversation.",
+    points: [
+      "Whisper for speech-to-text, Groq-hosted Llama Vision for the image and question, ElevenLabs for voice.",
+      "About 30 seconds average response, live on Hugging Face Spaces."
+    ],
+    tags: ["Python", "Gradio", "Groq API", "Whisper", "Llama Vision", "ElevenLabs"],
+    github: "https://github.com/sahanashettygithub/Medi_ai-Google_Girl_Hackathon_2025",
+    demo: "https://huggingface.co/spaces/sahanashetty908/medi-ai-assistant"
+  },
+  {
+    title: "Facial Recognition Attendance System",
+    desc: "Replaces manual roll calls with automatic face-based attendance.",
+    points: [
+      "OpenCV, face_recognition and Flask log each attendance record to CSV.",
+      "95% recognition accuracy, with recognition logic kept separate from the web layer for easy testing."
+    ],
+    tags: ["Python", "OpenCV", "face_recognition", "Flask", "NumPy", "CSV"],
+    github: "https://github.com/sahanashettygithub/face_recognition_attendancesystem/tree/master",
+    demo: ""
+  }
+];
+
+/* ---------- helpers ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad = n => String(n).padStart(2, "0");
+const N = PROJECTS.length;
+
+const linkBtns = p => [
+  p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener">GitHub ↗</a>` : "",
+  p.demo   ? `<a class="live" href="${esc(p.demo)}" target="_blank" rel="noopener">Live Demo ↗</a>` : ""
+].join("");
+
+const metaBlock = p => {
+  const l = linkBtns(p);
+  return `<div class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join("")}</div>${l ? `<div class="links">${l}</div>` : ""}`;
+};
+
+/* ---------- page templates ---------- */
+const coverPage = () => `<div class="pg-in cover">
+  <h3>Selected work</h3>
+  <p>${N} projects, each one on GitHub and most of them live. Flip the page to start.</p>
+  <span class="hint">Use the arrows below, or ← → on your keyboard</span></div>`;
+
+const textPage = (p, i) => `<div class="pg-in">
+  <span class="pnum">Project ${i + 1} of ${N}</span>
+  <h3>${esc(p.title)}</h3>
+  <p class="desc">${esc(p.desc)}</p>
+  <ul>${p.points.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+  <div class="mobile-meta">${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ""}${metaBlock(p)}</div></div>`;
+
+const visualPage = (p, i) => `<div class="pg-in vis">
+  <span class="bignum">${pad(i + 1)}</span>
+  ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ""}
+  <h3>${esc(p.title)}</h3>
+  ${metaBlock(p)}</div>`;
+
+const endPage = () => `<div class="pg-in vis">
+  <span class="bignum">✓</span>
+  <h3>That's the lot</h3>
+  <p class="desc">Like what you see? Let's build something together.</p>
+  <div class="links"><a class="live" href="#contact">Say hi</a></div></div>`;
+
+/* ---------- build the book ----------
+   Leaf 0 front = cover, back = visual page of project 1.
+   Leaf i front = text of project i, back = visual of project i+1.
+   So after flipping i leaves, the spread shows project i. */
+const grid = document.getElementById("project-grid");
+const leaves = [];
+for (let i = 0; i <= N; i++) {
+  const front = i === 0 ? coverPage() : textPage(PROJECTS[i - 1], i - 1);
+  const back  = i < N ? visualPage(PROJECTS[i], i) : endPage();
+  leaves.push(`<div class="leaf"><div class="face front${i === 0 ? " cover-face" : ""}">${front}</div><div class="face back">${back}</div></div>`);
+}
+
+grid.innerHTML = `
+  <div class="book-wrap">
+    <div class="book" id="book" tabindex="0" aria-label="Project book. Use the left and right arrow keys to flip pages.">${leaves.join("")}</div>
+  </div>
+  <div class="flip-ctrl">
+    <button class="flip-btn" id="prev" aria-label="Previous page">←</button>
+    <span id="status" aria-live="polite"></span>
+    <button class="flip-btn" id="next" aria-label="Next page">→</button>
+  </div>`;
+
+const book = document.getElementById("book");
+const leafEls = [...book.children];
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const status = document.getElementById("status");
+const mq = window.matchMedia("(max-width: 760px)");
+let cur = 0;
+
+const max = () => (mq.matches ? N : N + 1);
+
+function render() {
+  cur = Math.min(cur, max());
+  book.classList.toggle("at-start", cur === 0);
+  book.classList.toggle("at-end", cur === N + 1);
+  leafEls.forEach((el, i) => {
+    el.classList.toggle("flipped", i < cur);
+    el.style.zIndex = i < cur ? i + 1 : N + 2 - i;
+    el.children[0].inert = i !== cur;      // only the visible faces can be tabbed to
+    el.children[1].inert = i !== cur - 1;
+  });
+  prev.disabled = cur === 0;
+  next.disabled = cur === max();
+  status.textContent = cur === 0 ? "Cover" : cur <= N ? `Project ${cur} of ${N}` : "The end";
+}
+
+const go = d => { cur = Math.max(0, Math.min(max(), cur + d)); render(); };
+prev.addEventListener("click", () => go(-1));
+next.addEventListener("click", () => go(1));
+book.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
+  if (e.key === "ArrowLeft")  { e.preventDefault(); go(-1); }
+});
+mq.addEventListener("change", render);
+
+/* swipe on touch screens */
+let x0 = null;
+book.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+book.addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+  x0 = null;
+});
+render();
+
+/* ---------- socials ---------- */
+const soc = document.getElementById("socials");
+[["GitHub", SOCIALS.github], ["LinkedIn", SOCIALS.linkedin]].forEach(([name, url]) => {
+  if (!url) return;
+  const a = document.createElement("a");
+  a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = name + " ↗";
+  soc.appendChild(a);
+});
+
+/* ---------- footer year ---------- */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* ---------- 3D skills carousel ---------- */
+(() => {
+  const root = document.getElementById("skills");
+  if (!root) return;
+  const stage = root.querySelector(".skills-stage");
+  const cards = [...stage.children];
+  const dotsEl = root.querySelector(".skills-dots");
+  const statusEl = root.querySelector(".sk-status");
+  let cur = 0, lastWheel = 0, moved = false;
+
+  const dots = cards.map((c, i) => {
+    const b = document.createElement("button");
+    b.className = "dot-btn";
+    b.setAttribute("aria-label", "Show " + c.querySelector("h3").textContent);
+    b.addEventListener("click", () => set(i));
+    dotsEl.appendChild(b);
+    return b;
+  });
+
+  function layout() {
+    const w = stage.clientWidth;
+    const cw = Math.min(400, w * 0.78);
+    const step = cw * (w < 640 ? 0.34 : 0.5);
+    stage.style.setProperty("--cw", cw + "px");
+    cards.forEach((c, i) => {
+      const d = i - cur, a = Math.abs(d);
+      c.style.transform =
+        `translate(-50%,-50%) translateX(${d * step}px) translateZ(${-a * 130}px) ` +
+        `rotateY(${d === 0 ? 0 : -Math.sign(d) * 42}deg) scale(${1 - a * 0.06})`;
+      c.style.opacity = a > 3 ? 0 : 1 - a * 0.16;
+      c.style.filter = `brightness(${1 - a * 0.16})`;
+      c.style.zIndex = 100 - a;
+      c.style.pointerEvents = a > 3 ? "none" : "auto";
+      c.classList.toggle("active", d === 0);
+      c.setAttribute("aria-hidden", d !== 0);
+    });
+    dots.forEach((b, i) => b.classList.toggle("on", i === cur));
+    statusEl.textContent = `${cards[cur].querySelector("h3").textContent}, ${cur + 1} of ${cards.length}`;
+  }
+
+  function set(i) {
+    const n = Math.max(0, Math.min(cards.length - 1, i));
+    if (n !== cur) { cur = n; layout(); }
+  }
+
+  root.querySelector(".sk-prev").addEventListener("click", () => set(cur - 1));
+  root.querySelector(".sk-next").addEventListener("click", () => set(cur + 1));
+
+  root.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { e.preventDefault(); set(cur + 1); }
+    if (e.key === "ArrowLeft")  { e.preventDefault(); set(cur - 1); }
+  });
+
+  /* sideways scroll / trackpad swipe: one card per gesture; plain vertical scroll is left alone */
+  stage.addEventListener("wheel", e => {
+    const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+    if (!dx) return;
+    e.preventDefault();
+    const now = performance.now(), fresh = now - lastWheel > 160;
+    lastWheel = now;
+    if (fresh && Math.abs(dx) > 4) set(cur + (dx > 0 ? 1 : -1));
+  }, { passive: false });
+
+  /* touch / mouse drag */
+  let sx = null;
+  stage.addEventListener("pointerdown", e => { sx = e.clientX; moved = false; });
+  stage.addEventListener("pointerup", e => {
+    if (sx === null) return;
+    const dx = e.clientX - sx; sx = null;
+    if (Math.abs(dx) > 40) { moved = true; set(cur + (dx < 0 ? 1 : -1)); }
+  });
+  stage.addEventListener("pointercancel", () => { sx = null; });
+
+  /* click a side card to bring it forward */
+  cards.forEach((c, i) => c.addEventListener("click", () => { if (!moved && i !== cur) set(i); moved = false; }));
+
+  window.addEventListener("resize", layout);
+  layout();
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("ready")));
+})();
+
+</script>
+</body>
+</html>
